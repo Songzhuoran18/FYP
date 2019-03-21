@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  // global variables
   state = {
     rootValue: 'root',
     users: [],
@@ -28,8 +29,8 @@ class App extends Component {
 
   handleRequestUsers = () => {
     // console.log(777)
-    axios.get('http://192.168.1.200:5000/testAPI')
-      .then(res => console.log(res))
+    axios.get('http://localhost:5000/testAPI')
+      .then(res => res.data)
       .then(dataSource => this.setState({ dataSource }))
   }
 
