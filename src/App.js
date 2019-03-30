@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Button, Icon } from 'antd';
 import axios from 'axios';
-import UserForm from './components/UserForm'
 import PatientTable from './components/PatientTable'
 import logo from './logo.svg';
 import './App.css';
@@ -12,24 +12,14 @@ class App extends Component {
     users: [],
     dataSource: [],
   }
-  
+
 
   componentDidMount() {
-    this.handleRequestUsers()
-    // const arr = [1, 4, 3]
-    // const result = arr.map((n) => n + 1)
-    // console.log('arr', arr)
-    // console.log('result', result)
+    this.handleRequestInfo();
   }
 
-  handleChangeRoot = (value) => {
-    
-    this.setState({ rootValue: value });
-  }
-
-  handleRequestUsers = () => {
-    // console.log(777)
-    axios.get('http://localhost:5000/testAPI')
+  handleRequestInfo = () => {
+    axios.get('http://192.168.1.200:5000/testAPI')
       .then(res => res.data)
       .then(dataSource => this.setState({ dataSource }))
   }
@@ -40,20 +30,19 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          {/* <p>
-            rootValue: {this.state.rootValue}
-          </p> */}
-          <PatientTable
-            dataSource={this.state.dataSource}
-          />
           {
-            // this.state.users.map((user) => (
-            //   <UserForm
-            //     key={user.id}
-            //     username={user.email}
-            //     onRootChange={this.handleChangeRoot}
-            //   />
-            // ))
+            <div>
+              <Button type="primary">Primary</Button>
+              <Button>Default</Button>
+              <Button type="dashed">Dashed</Button>
+              <Button type="danger">Danger</Button>
+              <Icon type="folder" theme="filled" />
+            </div>
+          }
+          {
+            <PatientTable
+              dataSource={this.state.dataSource}
+            />
           }
         </header>
       </div>
