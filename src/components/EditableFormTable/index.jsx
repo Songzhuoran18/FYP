@@ -51,8 +51,8 @@ class EditableCell extends Component {
 
 class EditableTable extends React.Component {
   state = {
-    dataSource: [],
     data: [],
+    subData: [],
     editingKey: '' , 
     filteredInfo: '',
     sortedInfo: {
@@ -61,24 +61,15 @@ class EditableTable extends React.Component {
     },
   };
 
+  componentDidMount() {
+    const { data, subData } = this.props;
+    this.setState({ data, subData });
+  }
+
   componentWillReceiveProps(nextProps) {
-    const { dataSource } = nextProps;
-    if (this.props.dataSource === dataSource) return;
-    // console.log('oops')
-    this.setState({ dataSource });
-    const data = dataSource.map((item, i) => ({
-      key: i,
-      name: item.name,
-      gender: item.gender,
-      age: item.age,
-      telephone: item.telephone,
-    }));
-    const subData = dataSource.map((item, i) => ({
-      key: `nested-${i}`,
-      complaint: item.complaint,
-      ill: item.ill,
-      diagnosis: item.diagnosis,
-    }))
+    const { data, subData } = nextProps;
+    const { data: oldData, subData: oldSubData } = this.props;
+    if (oldData === data && oldSubData === subData) return;
     this.setState({ data, subData });
   }
 
@@ -91,7 +82,6 @@ class EditableTable extends React.Component {
   };
 
   save(form, key) {
-    // console.log("TCL: EditableTable -> save -> key", key)
     const { data, subData } = this.state;
     const nested = key.toString().startsWith('nested');
     const oldData = nested ? subData : data;
@@ -102,28 +92,30 @@ class EditableTable extends React.Component {
       }
       const newData = [...oldData];
       const index = newData.findIndex(item => key === item.key);
-      // console.log('index', index)
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, {
           ...item,
           ...row,
         });
-        this.setState({ [nested ? 'subData' : 'data']: newData, editingKey: '' });
       } else {
         newData.push(row);
-        this.setState({ [nested ? 'subData' : 'data']: newData, editingKey: '' });
       }
+      this.setState({ [nested ? 'subData' : 'data']: newData, editingKey: '' }, () => {
+        // Update data to the outside
+        this.props.onChangeData({
+          ...this.state.subData[index], // be first to keep main key
+          ...this.state.data[index],
+        });
+      });
     });
   }
 
   edit(key) {
-    // console.log(key)
     this.setState({ editingKey: key });
   }
 
   handleChange = (pagination, filters, sorter) => {
-    // console.log('Various parameters', pagination, filters, sorter);
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -136,26 +128,29 @@ class EditableTable extends React.Component {
         cell: EditableCell,
       },
     };
-    let columns = [
-      {
-        title: 'Chief complaint',
-        dataIndex: 'complaint',
-        editable: true,
-      }, {
-        title: 'Present illness',
-        dataIndex: 'ill',
-        editable: true,
-      }, {
-        title: 'Diagnosis',
-        dataIndex: 'diagnosis',
-        editable: true,
-      },
+
+    let { subColumns } = this.props;
+    subColumns = subColumns.map((col) => {
+      if (!col.editable) {
+        return col;
+      }
+      return {
+        ...col,
+        onCell: record => ({
+          record,
+          inputType: 'text',
+          dataIndex: col.dataIndex,
+          title: col.title,
+          editing: this.isEditing(record),
+        }),
+      };
+    });
+
+    subColumns.push(
       {
         title: 'Operation',
         dataIndex: 'operation',
         render: (text, record) => {
-          // console.log('record.key', record.key)
-          // console.log('this.state.editingKey', this.state.editingKey)
           const { editingKey } = this.state;
           const editable = this.isEditing(record);
           return (
@@ -187,27 +182,12 @@ class EditableTable extends React.Component {
           );
         },
       },
-    ]
-    columns = columns.map((col) => {
-      if (!col.editable) {
-        return col;
-      }
-      return {
-        ...col,
-        onCell: record => ({
-          record,
-          inputType: 'text',
-          dataIndex: col.dataIndex,
-          title: col.title,
-          editing: this.isEditing(record),
-        }),
-      };
-    });
+    );
     
     return (
       <Table
         components={components}
-        columns={columns}
+        columns={subColumns}
         dataSource={[this.state.subData[key]]}
         pagination={false}
       />  
@@ -217,43 +197,35 @@ class EditableTable extends React.Component {
   render() {
     const { sortedInfo } = this.state
     const { filteredInfo } = this.state
-    let columns = [{
-      title: 'Name',
-      dataIndex: 'name',
-      width: '20%',
-      editable: true,
-      sorter: (a, b) => a.name.length - b.name.length,
-      sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
-    }, {
-      title: 'Gender',
-      dataIndex: 'gender',
-      width: '12.5%',
-      editable: true,
-      filters: [
-        { text: 'Male', value: 'M'},
-        { text: 'Female', value: 'F'},
-      ],
-      filteredValue: filteredInfo.gender,
-      onFilter: (value, record) => record.gender.includes(value),
-    }, {
-      title: 'Age',
-      dataIndex: 'age',
-      width: '12.5%',
-      editable: true,
-      sorter: (a, b) => a.age - b.age,
-      sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
-    }, 
-    {
-      title: 'Telephone',
-      dataIndex: 'telephone',
-      width: '35%',
-      editable: true,
-    },
-    {
+    let { columns } = this.props;
+
+    columns = columns.map((col) => {
+      if (col.sorter) {
+        col.sortOrder = sortedInfo.columnKey === col.dataIndex && sortedInfo.order;
+      }
+      if (col.filters) {
+        col.filteredValue = filteredInfo.gender;
+        col.onFilters = (value, record) => record[col.dataIndex].includes(value);
+      }
+      if (!col.editable) {
+        return col;
+      }
+      return {
+        ...col,
+        onCell: record => ({
+          record,
+          inputType: col.dataIndex === 'age' ? 'number' : 'text',
+          dataIndex: col.dataIndex,
+          title: col.title,
+          editing: this.isEditing(record),
+        }),
+      };
+    });
+
+    columns.push({
       title: 'Operation',
       dataIndex: 'operation',
       render: (text, record) => {
-        // console.log('record', record)
         const { editingKey } = this.state;
         const editable = this.isEditing(record);
         return (
@@ -279,34 +251,19 @@ class EditableTable extends React.Component {
                 </Popconfirm>
               </span>
             ) : (
-              <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
-            )}
+                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
+              )}
           </div>
-          );
-       },
+        );
       },
-    ]
+    });
+
     const components = {
       body: {
         cell: EditableCell,
       },
     };
-
-    columns = columns.map((col) => {
-      if (!col.editable) {
-        return col;
-      }
-      return {
-        ...col,
-        onCell: record => ({
-          record,
-          inputType: col.dataIndex === 'age' ? 'number' : 'text',
-          dataIndex: col.dataIndex,
-          title: col.title,
-          editing: this.isEditing(record),
-        }),
-      };
-    });
+    
     return (
       <EditableContext.Provider value={this.props.form}>
         <Table
