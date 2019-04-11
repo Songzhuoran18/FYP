@@ -23,21 +23,25 @@ class PatientTable extends Component {
     let columns = [{
       title: 'Name',
       dataIndex: 'name',
+      key: 'name',
       width: '20%',
       editable: true,
       sorter: (a, b) => a.name.length - b.name.length,
     }, {
       title: 'Gender',
       dataIndex: 'gender',
+      key: 'gender',
       width: '12.5%',
       editable: true,
       filters: [
-        { text: 'Male', value: 'M' },
-        { text: 'Female', value: 'F' },
+        { text: 'Male', value: 'male' },
+        { text: 'Female', value: 'female' },
       ],
+      onFilter: (value, record) => record.gender.indexOf(value) === 0,
     }, {
       title: 'Age',
       dataIndex: 'age',
+      key: 'age',
       width: '12.5%',
       editable: true,
       sorter: (a, b) => a.age - b.age,
@@ -45,6 +49,7 @@ class PatientTable extends Component {
     {
       title: 'Telephone',
       dataIndex: 'telephone',
+      key: 'telephone',
       width: '35%',
       editable: true,
     }];

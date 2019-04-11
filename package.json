@@ -10,7 +10,8 @@
     "react": "^16.8.4",
     "react-app-rewired": "^2.1.1",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "recorder-js": "^1.0.7"
   },
   "scripts": {
     "start": "react-app-rewired start",

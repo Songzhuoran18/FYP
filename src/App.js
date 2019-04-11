@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Icon } from 'antd';
 import axios from 'axios';
 import PatientTable from './components/PatientTable'
+import WebRecorder from './components/WebRecorder'
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,7 +13,7 @@ class App extends Component {
     users: [],
     dataSource: [{
       name: 'Steve',
-      gender: 'Male',
+      gender: 'male',
       age: 21,
       telephone: '18112769460',
       complaint: '脑壳疼',
@@ -20,7 +21,7 @@ class App extends Component {
       diagnosis: '学多了',
     }, {
       name: 'Manu',
-      gender: 'Male',
+      gender: 'female',
       age: 18,
       telephone: '13936527331',
       complaint: '肚子疼',
@@ -46,14 +47,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <WebRecorder />
           {
-            <div>
-              <Button type="primary">Primary</Button>
-              <Button>Default</Button>
-              <Button type="dashed">Dashed</Button>
-              <Button type="danger">Danger</Button>
-              <Icon type="folder" theme="filled" />
-            </div>
+            // <div>
+            //   <Button type="primary">Primary</Button>
+            //   <Button>Default</Button>
+            //   <Button type="dashed">Dashed</Button>
+            //   <Button type="danger">Danger</Button>
+            //   <Icon type="folder" theme="filled" />
+            // </div>
           }
           {
             <PatientTable
