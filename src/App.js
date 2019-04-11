@@ -10,7 +10,23 @@ class App extends Component {
   state = {
     rootValue: 'root',
     users: [],
-    dataSource: [],
+    dataSource: [{
+      name: 'Steve',
+      gender: 'Male',
+      age: 21,
+      telephone: '18112769460',
+      complaint: '脑壳疼',
+      ill: '发热',
+      diagnosis: '学多了',
+    }, {
+      name: 'Manu',
+      gender: 'Male',
+      age: 18,
+      telephone: '13936527331',
+      complaint: '肚子疼',
+      ill: '恶心',
+      diagnosis: '吃饱撑的',
+    }],
   }
 
 
