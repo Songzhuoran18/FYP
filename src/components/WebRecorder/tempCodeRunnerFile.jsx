@@ -1,0 +1,1 @@
+console.log([new Float32Array(), new Float32Array()]);

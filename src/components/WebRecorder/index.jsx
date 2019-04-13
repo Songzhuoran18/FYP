@@ -44,14 +44,6 @@ export default class WebRecorder extends Component {
             });
     }
 
-    pauseRecording = () => {
-        const { recorder } = this.state;
-        recorder.stop()
-            .then(({ blob }) => {
-                this.setState({ blob, isRecording: false })
-            })
-    }
-
     stopRecording = () => {
         const { recorder } = this.state;
         recorder.stop()
@@ -75,23 +67,17 @@ export default class WebRecorder extends Component {
                 <div >
                     {
                         isRecording
-                        ? (
-                            <div>
-                                <Button onClick={this.stopRecording}>Stop</Button>
-                                <Button onClick={this.pauseRecording}>Pause</Button>
-                            </div>
-                        )
+                        ? <Button onClick={this.stopRecording}>Stop</Button>
                         : <Button type='primary' onClick={this.startRecording}>Record</Button>
                     }
-                    }
+                    { blob && <Button onClick={this.download}>Download</Button> }
                     {
-                        blob &&
-                        <div>
-                            <audio controls src={URL.createObjectURL(blob)}></audio>
-                            <Button onClick={this.download}>Download</Button>
-                        </div>
+                        blob && (
+                            <div>
+                                <audio controls src={URL.createObjectURL(blob)}></audio>
+                            </div>
+                        )
                     }
-                    <a href={this.state.url}>{this.state.url}</a>
                 </div>
             </div>
         )
