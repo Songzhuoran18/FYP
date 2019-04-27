@@ -20,7 +20,11 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-script-url": "off"
+    }
   },
   "browserslist": [
     ">0.2%",

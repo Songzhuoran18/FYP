@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
 import React, { Component } from 'react'
 import {
     Table, Input, InputNumber, Popconfirm, Form
@@ -105,7 +107,8 @@ class EditableTable extends React.Component {
         // Update data to the outside
         this.props.onChangeData({
           ...this.state.subData[index], // be first to keep main key
-          ...this.state.data[index],
+          userInfo: this.state.data[index],
+          _id: this.state.data[index].key,
         });
       });
     });
@@ -183,12 +186,14 @@ class EditableTable extends React.Component {
         },
       },
     );
+
+    const dataSource = this.state.subData.filter(item => item.key === `nested-${key}`)
     
     return (
       <Table
         components={components}
         columns={subColumns}
-        dataSource={[this.state.subData[key]]}
+        dataSource={dataSource}
         pagination={false}
       />  
     );

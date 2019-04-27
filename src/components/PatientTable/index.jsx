@@ -1,23 +1,34 @@
 import React, { Component } from 'react'
-import {
-  Input, InputNumber, Popconfirm, Form
-} from 'antd';
+import axios from 'axios';
 import EditableFormTable from '../EditableFormTable';
+import { DOMAIN_URL } from '../../config';
 
 class PatientTable extends Component {
   _handleChangeData = (update) => {
     console.log('update', update);
+    const { _id, ill, complaint, diagnosis, userInfo } = update;
+    console.log('userInfo: ', userInfo);
+    axios.put(`${DOMAIN_URL}/userinfo/${_id}`, {
+      userInfo,
+      ill,
+      complaint,
+      diagnosis,
+    }).then(({ data }) => {
+      console.log('data: ', data);
+    }).catch((err) => {
+      console.log('err: ', err);
+    })
   }
 
   render() {
     const { dataSource } = this.props;
     // Main Data
-    const data = dataSource.map((item, i) => ({
-      key: i,
-      name: item.name,
-      gender: item.gender,
-      age: item.age,
-      telephone: item.telephone,
+    const data = dataSource.map(({ _id, userInfo = {} }) => ({
+      key: _id,
+      name: userInfo.name,
+      gender: userInfo.gender,
+      age: userInfo.age,
+      telephone: userInfo.telephone,
     }));
 
     let columns = [{
@@ -55,8 +66,8 @@ class PatientTable extends Component {
     }];
 
     // SubData
-    const subData = dataSource.map((item, i) => ({
-      key: `nested-${i}`,
+    const subData = dataSource.map((item) => ({
+      key: `nested-${item._id}`,
       complaint: item.complaint,
       ill: item.ill,
       diagnosis: item.diagnosis,

@@ -1,67 +1,53 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'antd';
 import axios from 'axios';
 import PatientTable from './components/PatientTable'
 import WebRecorder from './components/WebRecorder'
 import logo from './logo.svg';
+import { DOMAIN_URL } from './config';
 import './App.css';
 
 class App extends Component {
   // global variables
   state = {
-    rootValue: 'root',
-    users: [],
-    dataSource: [{
-      name: 'Steve',
-      gender: 'male',
-      age: 21,
-      telephone: '18112769460',
-      complaint: '脑壳疼',
-      ill: '发热',
-      diagnosis: '学多了',
-    }, {
-      name: 'Manu',
-      gender: 'female',
-      age: 18,
-      telephone: '13936527331',
-      complaint: '肚子疼',
-      ill: '恶心',
-      diagnosis: '吃饱撑的',
-    }],
+    dataSource: [],
   }
 
 
   componentDidMount() {
-    this.handleRequestInfo();
+    this._getMedicalRecords();
   }
 
-  handleRequestInfo = () => {
-    axios.get('http://192.168.1.200:5000/testAPI')
+  _getMedicalRecords = () => {
+    axios.get(`${DOMAIN_URL}/userinfo`)
       .then(res => res.data)
       .then(dataSource => this.setState({ dataSource }))
   }
 
+  _handleDictation = (audio) => {
+    console.log('audio: ', audio);
+    const formData = new FormData();
+    formData.append('audio', audio, 'record.wav');
+    axios.post(`${DOMAIN_URL}/dictate`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then((res) => {
+        console.log('res:', res);
+      }).catch((err) => {
+        console.log('err:', err);
+      })
+  }
+
   render() {
-    console.log('logged:', this.state.dataSource);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <WebRecorder />
-          {
-            // <div>
-            //   <Button type="primary">Primary</Button>
-            //   <Button>Default</Button>
-            //   <Button type="dashed">Dashed</Button>
-            //   <Button type="danger">Danger</Button>
-            //   <Icon type="folder" theme="filled" />
-            // </div>
-          }
-          {
-            <PatientTable
-              dataSource={this.state.dataSource}
-            />
-          }
+          <WebRecorder onDictation={this._handleDictation} />
+          <PatientTable
+            dataSource={this.state.dataSource}
+          />
         </header>
       </div>
     );
