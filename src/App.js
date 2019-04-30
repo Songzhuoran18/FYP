@@ -41,7 +41,7 @@ class App extends Component {
               complaint: data.data,
               diagnosis: '',
               ill: '',
-              userInfo: { age: 0, gender: '', name: '', telephone: '' },
+              userInfo: { age: '', gender: '', name: '', telephone: '' },
               _id: `temp-${uuid()}`,
             },
             ...prevState.dataSource

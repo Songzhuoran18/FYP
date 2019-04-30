@@ -121,16 +121,16 @@ class EditableTable extends React.Component {
   }
 
   delete = (key) => {
+    console.log('key: ', key);
     const { data, subData } = this.state;
     const newData = [...data];
     const newSubData = [...subData];
     const index = newData.findIndex(item => key === item.key);
-    console.log('index', index);
     if (index !== -1) {
       this.setState({ data: newData, subData: newSubData, editingKey: '' }, () => {
-        this.props.onDeleteRow({
-          _id: data[index].key,
-        });
+        if (!key.includes('temp')) { // delete new data
+          this.props.onDeleteRow({ _id: key });
+        }
       });
       newData.splice(index, 1);
     }

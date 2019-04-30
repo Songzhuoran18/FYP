@@ -6,9 +6,7 @@ import { DOMAIN_URL } from '../../config';
 class PatientTable extends Component {
   _deleteUser = (user) => {
     console.log('delete', user);
-    const { _id } = user;
-    console.log('user', user);
-    
+    const { _id } = user;    
     axios.delete(`${DOMAIN_URL}/userinfo/${_id}`)
       .then(({ data }) => {
         console.log('data: ', data);
