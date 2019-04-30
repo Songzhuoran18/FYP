@@ -6,32 +6,37 @@ import resample from '../../utils/resampler';
 
 export default class WebRecorder extends Component {
     state = {
+        init: false,
         audioContext: null,
         recorder: null,
         blob: null,
         isRecording: false
     }
 
+    componentDidMount() {
+        const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+        const recorder = new Recorder(audioContext);
+
+        this.setState({ recorder, audioContext });
+        console.log('recorder: ', recorder);
+    }
+
     startRecording = async () => {
-        const { recorder } = this.state;
-        if (!recorder) {
+        const { recorder, init } = this.state;
+        if (!init) {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const recorder = new Recorder(audioContext);
-                recorder.init(stream);
-                this.setState({ recorder, audioContext });
-                console.log('recorder: ', recorder);
-                recorder.start()
-                    .then(() => {
-                        console.log('Start recording');
-                        this.setState({ isRecording: true })
-                    });
+                recorder.init(stream)
+                this.setState({ init })
             } catch (err) {
                 console.log('Uh oh... unable to get stream...', err);
-                alert('Uh oh... unable to get stream...');
-            } 
+            }
         }
+        recorder.start()
+            .then(() => {
+                console.log('Start recording');
+                this.setState({ isRecording: true })
+            });
     }
 
     stopRecording = () => {
