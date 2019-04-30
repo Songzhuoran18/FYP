@@ -2,7 +2,7 @@
 /* eslint-disable no-script-url */
 import React, { Component } from 'react'
 import {
-    Table, Input, InputNumber, Popconfirm, Form, Button
+  Table, Input, InputNumber, Popconfirm, Form, Button
 } from 'antd';
 import uuid from 'uuidv4';
 
@@ -56,7 +56,7 @@ class EditableTable extends React.Component {
   state = {
     data: [],
     subData: [],
-    editingKey: '' , 
+    editingKey: '',
     filteredInfo: '',
     sortedInfo: {
       order: '',
@@ -126,13 +126,13 @@ class EditableTable extends React.Component {
     const newSubData = [...subData];
     const index = newData.findIndex(item => key === item.key);
     console.log('index', index);
-    if (index !== -1){
+    if (index !== -1) {
       this.setState({ data: newData, subData: newSubData, editingKey: '' }, () => {
         this.props.onDeleteRow({
           _id: data[index].key,
         });
       });
-      newData.splice(index,1);
+      newData.splice(index, 1);
     }
   }
 
@@ -222,8 +222,8 @@ class EditableTable extends React.Component {
                   </Popconfirm>
                 </span>
               ) : (
-                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
-              )}
+                  <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
+                )}
             </div>
           );
         },
@@ -231,14 +231,14 @@ class EditableTable extends React.Component {
     );
 
     const dataSource = this.state.subData.filter(item => item.key === `nested-${key}`)
-    
+
     return (
       <Table
         components={components}
         columns={subColumns}
         dataSource={dataSource}
         pagination={false}
-      />  
+      />
     );
   };
 
@@ -290,13 +290,14 @@ class EditableTable extends React.Component {
                       >
                         Save
                       </a>
-                      <a
+                      <Popconfirm
+                        title="Sure to delete?"
                         href="javascript:;"
-                        onClick={() => this.delete(record.key)}
+                        onConfirm={() => this.delete(record.key)}
                         style={{ marginRight: 8 }}
                       >
-                        Delete
-                      </a>
+                        <a>Delete</a>
+                      </Popconfirm>
                     </div>
                   )}
                 </EditableContext.Consumer>
@@ -320,7 +321,7 @@ class EditableTable extends React.Component {
         cell: EditableCell,
       },
     };
-    
+
     return (
       <EditableContext.Provider value={this.props.form}>
         <Button onClick={this.add}>Add</Button>
