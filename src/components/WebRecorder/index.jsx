@@ -6,47 +6,38 @@ import resample from '../../utils/resampler';
 
 export default class WebRecorder extends Component {
     state = {
-        init: false,
         audioContext: null,
         recorder: null,
         blob: null,
         isRecording: false
     }
 
-    componentDidMount() {
-        const audioContext = new(window.AudioContext || window.webkitAudioContext)();
-        const recorder = new Recorder(audioContext);
-
-        this.setState({ recorder, audioContext });
-        console.log('recorder: ', recorder);
-    }
-
     startRecording = async () => {
-        const { recorder, init } = this.state;
-        if (!init) {
+        const { recorder } = this.state;
+        if (!recorder) {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: {
-                    channelCount: 1, // 声道
-                    numberOfChannels: 1,
-                } })
-                recorder.init(stream)
-                this.setState({ init })
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const recorder = new Recorder(audioContext);
+                recorder.init(stream);
+                this.setState({ recorder, audioContext });
+                console.log('recorder: ', recorder);
+                recorder.start()
+                    .then(() => {
+                        console.log('Start recording');
+                        this.setState({ isRecording: true })
+                    });
             } catch (err) {
                 console.log('Uh oh... unable to get stream...', err);
-            }
+                alert('Uh oh... unable to get stream...');
+            } 
         }
-        recorder.start()
-            .then(() => {
-                console.log('Start recording');
-                this.setState({ isRecording: true })
-            });
     }
 
     stopRecording = () => {
         const { recorder } = this.state;
         recorder.stop()
-            .then(({ blob, buffer }) => {
-                console.log('buffer: ', buffer);
+            .then(({ blob }) => {
                 console.log('Stopped recording');
                 this.setState({
                     blob,

@@ -2,8 +2,9 @@
 /* eslint-disable no-script-url */
 import React, { Component } from 'react'
 import {
-    Table, Input, InputNumber, Popconfirm, Form
+    Table, Input, InputNumber, Popconfirm, Form, Button
 } from 'antd';
+import uuid from 'uuidv4';
 
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
@@ -35,10 +36,10 @@ class EditableCell extends Component {
               {editing ? (
                 <FormItem style={{ margin: 0 }}>
                   {getFieldDecorator(dataIndex, {
-                    rules: [{
-                      required: true,
-                      message: `Please Input ${title}!`,
-                    }],
+                    // rules: [{
+                    //   required: true,
+                    //   message: `Please Input ${title}!`,
+                    // }],
                     initialValue: record[dataIndex],
                   })(this.getInput())}
                 </FormItem>
@@ -83,7 +84,7 @@ class EditableTable extends React.Component {
     this.setState({ editingKey: '' });
   };
 
-  save(form, key) {
+  save = (form, key) => {
     const { data, subData } = this.state;
     const nested = key.toString().startsWith('nested');
     const oldData = nested ? subData : data;
@@ -105,16 +106,56 @@ class EditableTable extends React.Component {
       }
       this.setState({ [nested ? 'subData' : 'data']: newData, editingKey: '' }, () => {
         // Update data to the outside
-        this.props.onChangeData({
+        const update = {
           ...this.state.subData[index], // be first to keep main key
           userInfo: this.state.data[index],
-          _id: this.state.data[index].key,
-        });
+          _id: this.state.data[index].key
+        };
+        if (update._id.includes('temp')) { // New data
+          this.props.onAddRow(update);
+        } else { // update existing
+          this.props.onChangeData(update);
+        }
       });
     });
   }
 
-  edit(key) {
+  delete = (key) => {
+    const { data, subData } = this.state;
+    const newData = [...data];
+    const newSubData = [...subData];
+    const index = newData.findIndex(item => key === item.key);
+    console.log('index', index);
+    if (index !== -1){
+      this.setState({ data: newData, subData: newSubData, editingKey: '' }, () => {
+        this.props.onDeleteRow({
+          _id: data[index].key,
+        });
+      });
+      newData.splice(index,1);
+    }
+  }
+
+  add = () => {
+    const { data, subData } = this.state;
+    const { columns, subColumns } = this.props;
+    const newData = [...data];
+    const newSubData = [...subData];
+    const dataTemplate = columns.reduce((acc, cur) => ({ ...acc, [cur.dataIndex]: '' }), {});
+    const subDataTemplate = subColumns.reduce((acc, cur) => ({ ...acc, [cur.dataIndex]: ' ' }), {});
+    const tempId = `temp-${uuid()}`;
+    newData.unshift({
+      ...dataTemplate,
+      key: tempId,
+    });
+    newSubData.unshift({
+      ...subDataTemplate,
+      key: `nested-${tempId}`,
+    });
+    this.setState({ data: newData, subData: newSubData, editingKey: tempId });
+  }
+
+  edit = (key) => {
     this.setState({ editingKey: key });
   }
 
@@ -162,13 +203,15 @@ class EditableTable extends React.Component {
                 <span>
                   <EditableContext.Consumer>
                     {form => (
-                      <a
-                        href="javascript:;"
-                        onClick={() => this.save(form, record.key)}
-                        style={{ marginRight: 8 }}
-                      >
-                        Save
-                      </a>
+                      <div className="">
+                        <a
+                          href="javascript:;"
+                          onClick={() => this.save(form, record.key)}
+                          style={{ marginRight: 8 }}
+                        >
+                          Save
+                        </a>
+                      </div>
                     )}
                   </EditableContext.Consumer>
                   <Popconfirm
@@ -239,13 +282,22 @@ class EditableTable extends React.Component {
               <span>
                 <EditableContext.Consumer>
                   {form => (
-                    <a
-                      href="javascript:;"
-                      onClick={() => this.save(form, record.key)}
-                      style={{ marginRight: 8 }}
-                    >
-                      Save
-                    </a>
+                    <div className="">
+                      <a
+                        href="javascript:;"
+                        onClick={() => this.save(form, record.key)}
+                        style={{ marginRight: 8 }}
+                      >
+                        Save
+                      </a>
+                      <a
+                        href="javascript:;"
+                        onClick={() => this.delete(record.key)}
+                        style={{ marginRight: 8 }}
+                      >
+                        Delete
+                      </a>
+                    </div>
                   )}
                 </EditableContext.Consumer>
                 <Popconfirm
@@ -271,6 +323,7 @@ class EditableTable extends React.Component {
     
     return (
       <EditableContext.Provider value={this.props.form}>
+        <Button onClick={this.add}>Add</Button>
         <Table
           components={components}
           bordered

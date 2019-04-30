@@ -4,6 +4,26 @@ import EditableFormTable from '../EditableFormTable';
 import { DOMAIN_URL } from '../../config';
 
 class PatientTable extends Component {
+  _deleteUser = (user) => {
+    console.log('delete', user);
+    const { _id } = user;
+    console.log('user', user);
+    
+    axios.delete(`${DOMAIN_URL}/userinfo/${_id}`)
+      .then(({ data }) => {
+        console.log('data: ', data);
+      }).catch((err) => err);
+  }
+
+  _addUser = (newUser) => {
+    axios.post(`${DOMAIN_URL}/adduser`, newUser)
+      .then(({ data }) => {
+      console.log('data: ', data);
+    }).catch((err) => {
+      console.log('err: ', err);
+    })
+  }
+
   _handleChangeData = (update) => {
     console.log('update', update);
     const { _id, ill, complaint, diagnosis, userInfo } = update;
@@ -96,6 +116,8 @@ class PatientTable extends Component {
         subData={subData}
         subColumns={subColumns}
         onChangeData={this._handleChangeData}
+        onDeleteRow={this._deleteUser}
+        onAddRow={this._addUser}
       />
     );
   }

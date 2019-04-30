@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import uuid from 'uuidv4';
 import PatientTable from './components/PatientTable'
 import WebRecorder from './components/WebRecorder'
 import logo from './logo.svg';
@@ -33,7 +34,19 @@ class App extends Component {
       }
     })
       .then(({ data }) => {
-        this.setState({ result: data.data });
+        this.setState((prevState) => ({
+          result: data.data,
+          dataSource: [
+            {
+              complaint: data.data,
+              diagnosis: '',
+              ill: '',
+              userInfo: { age: 0, gender: '', name: '', telephone: '' },
+              _id: `temp-${uuid()}`,
+            },
+            ...prevState.dataSource
+          ]
+        }));
         console.log('res:', data);
       }).catch((err) => {
         console.log('err:', err);
