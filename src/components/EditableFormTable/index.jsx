@@ -114,6 +114,22 @@ class EditableTable extends React.Component {
     });
   }
 
+  delete(key) {
+    const { data, subData } = this.state;
+    const newData = [...data];
+    const newSubData = [...subData];
+    const index = newData.findIndex(item => key === item.key);
+    console.log('index', index);
+    if (index !== -1){
+      this.setState({ data: newData, subData: newSubData, editingKey: '' }, () => {
+        this.props.onDeleteUser({
+          _id: data[index].key,
+        });
+      });
+      newData.splice(index,1);
+    }
+  }
+
   edit(key) {
     this.setState({ editingKey: key });
   }
@@ -162,13 +178,15 @@ class EditableTable extends React.Component {
                 <span>
                   <EditableContext.Consumer>
                     {form => (
-                      <a
-                        href="javascript:;"
-                        onClick={() => this.save(form, record.key)}
-                        style={{ marginRight: 8 }}
-                      >
-                        Save
-                      </a>
+                      <div className="">
+                        <a
+                          href="javascript:;"
+                          onClick={() => this.save(form, record.key)}
+                          style={{ marginRight: 8 }}
+                        >
+                          Save
+                        </a>
+                      </div>
                     )}
                   </EditableContext.Consumer>
                   <Popconfirm
@@ -239,13 +257,22 @@ class EditableTable extends React.Component {
               <span>
                 <EditableContext.Consumer>
                   {form => (
-                    <a
-                      href="javascript:;"
-                      onClick={() => this.save(form, record.key)}
-                      style={{ marginRight: 8 }}
-                    >
-                      Save
-                    </a>
+                    <div className="">
+                      <a
+                        href="javascript:;"
+                        onClick={() => this.save(form, record.key)}
+                        style={{ marginRight: 8 }}
+                      >
+                        Save
+                      </a>
+                      <a
+                        href="javascript:;"
+                        onClick={() => this.delete(record.key)}
+                        style={{ marginRight: 8 }}
+                      >
+                        Delete
+                      </a>
+                    </div>
                   )}
                 </EditableContext.Consumer>
                 <Popconfirm
