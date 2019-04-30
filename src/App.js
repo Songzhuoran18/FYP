@@ -10,6 +10,7 @@ class App extends Component {
   // global variables
   state = {
     dataSource: [],
+    result: '',
   }
 
 
@@ -24,16 +25,16 @@ class App extends Component {
   }
 
   _handleDictation = (audio) => {
-    console.log('audio: ', audio);
     const formData = new FormData();
-    formData.append('audio', audio, 'record.wav');
+    formData.append('audio', new Blob([audio]), 'record.wav');
     axios.post(`${DOMAIN_URL}/dictate`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
-      .then((res) => {
-        console.log('res:', res);
+      .then(({ data }) => {
+        this.setState({ result: data.data });
+        console.log('res:', data);
       }).catch((err) => {
         console.log('err:', err);
       })
@@ -44,6 +45,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <div style={{color: 'red'}}>{this.state.result}</div>
           <WebRecorder onDictation={this._handleDictation} />
           <PatientTable
             dataSource={this.state.dataSource}

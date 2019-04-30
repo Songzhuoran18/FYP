@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Recorder from 'recorder-js';
 import { Button } from 'antd';
+import toWav from 'audiobuffer-to-wav';
+import resample from '../../utils/resampler';
 
 export default class WebRecorder extends Component {
     state = {
@@ -13,13 +15,7 @@ export default class WebRecorder extends Component {
 
     componentDidMount() {
         const audioContext = new(window.AudioContext || window.webkitAudioContext)();
-
-        const recorder = new Recorder(audioContext, {
-            // An array of 255 Numbers
-            // You can use this to visualize the audio stream
-            // If you use react, check out react-wave-stream
-            // onAnalysed: data => console.log(data),
-        });
+        const recorder = new Recorder(audioContext);
 
         this.setState({ recorder, audioContext });
         console.log('recorder: ', recorder);
@@ -30,9 +26,8 @@ export default class WebRecorder extends Component {
         if (!init) {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: {
-                    sampleRate: 8000,
                     channelCount: 1, // 声道
-                    volume: 1 // 音量
+                    numberOfChannels: 1,
                 } })
                 recorder.init(stream)
                 this.setState({ init })
@@ -50,9 +45,13 @@ export default class WebRecorder extends Component {
     stopRecording = () => {
         const { recorder } = this.state;
         recorder.stop()
-            .then(({ blob }) => {
+            .then(({ blob, buffer }) => {
+                console.log('buffer: ', buffer);
                 console.log('Stopped recording');
-                this.setState({ blob, isRecording: false });
+                this.setState({
+                    blob,
+                    isRecording: false
+                });
             });
     }
 
@@ -63,26 +62,16 @@ export default class WebRecorder extends Component {
 
     dictate = () => {
         const { blob, audioContext } = this.state;
-        this.props.onDictation(blob);
         let fileReader = new FileReader();
-
-        let arrayBuffer;
-
-        fileReader.readAsArrayBuffer(blob);
-        // fileReader.readAsBinaryString(blob);
-        // fileReader.onloadend = () => {
-        //     console.log(fileReader.result);
-        //     this.props.onDictation(fileReader.result);
-        // }
-        fileReader.onloadend = () => {
-            arrayBuffer = fileReader.result;
-        //     // const base64Audio = encodeURI(_arrayBufferToBase64(arrayBuffer));
-            audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
-                console.log('audioBuffer: ', audioBuffer);
-        //     //     this.props.onDictation(audioBuffer);
+        fileReader.onloadend = async () => {
+            const arrayBuffer = fileReader.result;
+            audioContext.decodeAudioData(arrayBuffer, async (audioBuffer) => {
+                const audioData = await resample(audioBuffer, 16000);
+                const wav = toWav(audioData);
+                this.props.onDictation(wav);
             })
-        //     this.props.onDictation(arrayBuffer);
         }
+        fileReader.readAsArrayBuffer(blob);
     }
 
     render() {
