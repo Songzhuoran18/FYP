@@ -13,21 +13,16 @@ export default class WebRecorder extends Component {
         isRecording: false
     }
 
-    componentDidMount() {
-        const audioContext = new(window.AudioContext || window.webkitAudioContext)();
-        const recorder = new Recorder(audioContext);
-
-        this.setState({ recorder, audioContext });
-        console.log('recorder: ', recorder);
-    }
-
     startRecording = async () => {
-        const { recorder, init } = this.state;
-        if (!init) {
+        let { recorder } = this.state;
+        if (!recorder) {
             try {
+                const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+                recorder = new Recorder(audioContext);
+                this.setState({ recorder, audioContext });
+                console.log('recorder: ', recorder);
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
                 recorder.init(stream)
-                this.setState({ init })
             } catch (err) {
                 console.log('Uh oh... unable to get stream...', err);
             }
