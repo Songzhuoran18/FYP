@@ -4,6 +4,14 @@ import EditableFormTable from '../EditableFormTable';
 import { DOMAIN_URL } from '../../config';
 
 class PatientTable extends Component {
+  state = {
+    dataSource: [],
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ dataSource: nextProps.dataSource })
+  }
+
   _deleteUser = (user) => {
     console.log('delete', user);
     const { _id } = user;    
@@ -14,15 +22,30 @@ class PatientTable extends Component {
   }
 
   _addUser = (newUser) => {
+		console.log("TCL: _addUser -> newUser", newUser)
     axios.post(`${DOMAIN_URL}/adduser`, newUser)
       .then(({ data }) => {
       console.log('data: ', data);
+      this.setState(({ dataSource }) => ({
+          dataSource: [
+            {
+              ...data,
+              key: undefined,
+              userInfo: {
+                ...data.userInfo,
+                key: undefined,
+              }
+            },
+            ...dataSource,
+          ],
+      }))
     }).catch((err) => {
       console.log('err: ', err);
     })
   }
 
   _handleChangeData = (update) => {
+		console.log("TCL: _handleChangeData -> update", update)
     console.log('update', update);
     const { _id, ill, complaint, diagnosis, userInfo } = update;
     console.log('userInfo: ', userInfo);
@@ -39,7 +62,7 @@ class PatientTable extends Component {
   }
 
   render() {
-    const { dataSource } = this.props;
+    const { dataSource } = this.state;
     // Main Data
     const data = dataSource.map(({ _id, userInfo = {} }) => ({
       key: _id,

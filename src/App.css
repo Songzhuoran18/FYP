@@ -4,9 +4,9 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 38vmin;
+  height: 35vmin;
   pointer-events: none;
-  margin-top: -50px;
+  margin-top: 20px;
 }
 
 .App-header {
@@ -14,6 +14,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,8 +36,16 @@
   }
 }
 
+.ant-table-wrapper {
+  width: 70%;
+}
+
 .ant-table table {
   background-color: white;
+}
+
+tr.ant-table-expanded-row td > .ant-table-wrapper {
+  width: 100%;
 }
 
 h1 {
