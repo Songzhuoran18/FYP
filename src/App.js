@@ -3,7 +3,7 @@ import axios from 'axios';
 import uuid from 'uuidv4';
 import PatientTable from './components/PatientTable'
 import WebRecorder from './components/WebRecorder'
-import logo from './logo.svg';
+import logo from './RedCross.png';
 import { DOMAIN_URL } from './config';
 import './App.css';
 
@@ -13,7 +13,6 @@ class App extends Component {
     dataSource: [],
     result: '',
   }
-
 
   componentDidMount() {
     this._getMedicalRecords();
@@ -58,6 +57,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <h1 style={{ fontWeight: 'bold' , color: 'rgb(75, 20, 107)', 
+          fontSize: '50px', fontStyle: 'italic', fontVariant: 'small-caps'}}>Automatic Outpatient System</h1>
           <div style={{color: 'red'}}>{this.state.result}</div>
           <WebRecorder onDictation={this._handleDictation} />
           <PatientTable

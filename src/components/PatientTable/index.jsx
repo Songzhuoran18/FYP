@@ -63,8 +63,8 @@ class PatientTable extends Component {
       width: '12.5%',
       editable: true,
       filters: [
-        { text: 'Male', value: 'male' },
-        { text: 'Female', value: 'female' },
+        { text: 'Male', value: 'M' },
+        { text: 'Female', value: 'F' },
       ],
       onFilter: (value, record) => record.gender.indexOf(value) === 0,
     }, {
@@ -93,11 +93,11 @@ class PatientTable extends Component {
 
     let subColumns = [
       {
-        title: 'Chief complaint',
+        title: 'Chief Complaint',
         dataIndex: 'complaint',
         editable: true,
       }, {
-        title: 'Present illness',
+        title: 'Present Illness',
         dataIndex: 'ill',
         editable: true,
       }, {

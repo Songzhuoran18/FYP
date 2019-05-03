@@ -69,7 +69,6 @@ export default class WebRecorder extends Component {
         const { isRecording, blob } = this.state;
         return (
             <div>
-                <h1>Recorder</h1>
                 <div style={styles.recorderContainer}>
                     {
                         isRecording
