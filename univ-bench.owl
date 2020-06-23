@@ -29,7 +29,7 @@
 </owl:Class>
 
 <owl:Class rdf:ID="AssociateProfessor">
-  <rdfs:label>associate professor</rdfs:label>
+  <rdfs:label>assoaite professor</rdfs:label>
   <rdfs:subClassOf rdf:resource="#Professor" />
 </owl:Class>
 
