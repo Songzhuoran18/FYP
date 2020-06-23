@@ -1,0 +1,681 @@
+@prefix : <http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17> .
+
+<http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#fix
+:fix rdf:type owl:ObjectProperty ;
+     owl:inverseOf :isFixedBy ;
+     rdfs:domain :Employee ;
+     rdfs:range :NeedFix .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#hasEmployee
+:hasEmployee rdf:type owl:ObjectProperty ;
+             rdfs:domain :BusinessBranch ;
+             rdfs:range :Employee .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isFixedBy
+:isFixedBy rdf:type owl:ObjectProperty ;
+           rdfs:domain :NeedFix ;
+           rdfs:range :Employee .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isIn
+:isIn rdf:type owl:ObjectProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :BusinessBranch ;
+      rdfs:range :City .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isOwnedBy
+:isOwnedBy rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Car ,
+                       [ rdf:type owl:Class ;
+                         owl:complementOf :CanBeResold
+                       ] ;
+           rdfs:range :BusinessBranch .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isParkedInBranch
+:isParkedInBranch rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :Car ,
+                              [ rdf:type owl:Class ;
+                                owl:complementOf :CanBeResold
+                              ] ;
+                  rdfs:range :BusinessBranch .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isProducedIn
+:isProducedIn rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Car ;
+              rdfs:range :City .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isRentedBy
+:isRentedBy rdf:type owl:ObjectProperty ;
+            owl:inverseOf :rent ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Car ,
+                        [ rdf:type owl:Class ;
+                          owl:complementOf :NotInUse
+                        ] ;
+            rdfs:range :Member .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isSentToFixIn
+:isSentToFixIn rdf:type owl:ObjectProperty ;
+               rdfs:domain :NeedFix ;
+               rdfs:range :City .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent
+:rent rdf:type owl:ObjectProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Member ;
+      rdfs:range :Car ,
+                 [ rdf:type owl:Class ;
+                   owl:complementOf :NotInUse
+                 ] .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age
+:age rdf:type owl:DatatypeProperty ;
+     rdfs:domain :People ;
+     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor
+:carColor rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Car ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date
+:date rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Car ;
+      rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalDateTime
+:disposalDateTime rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :date ;
+                  rdfs:domain :Car ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalPrice
+:disposalPrice rdf:type owl:DatatypeProperty ;
+               rdfs:domain :CanBeResold ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#employeeCode
+:employeeCode rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Employee ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchaseDateTime
+:purchaseDateTime rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :date ;
+                  rdfs:domain :Car ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchasePrice
+:purchasePrice rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Car ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#totalRentingHour
+:totalRentingHour rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :MemberHaveRented ;
+                  rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherHaveBadRecord
+:whetherHaveBadRecord rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :MemberHaveRented ;
+                      rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherIsRentedNow
+:whetherIsRentedNow rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Car ;
+                    rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch
+:BusinessBranch rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasEmployee ;
+                                  owl:someValuesFrom :Employee
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isIn ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :City
+                                ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold
+:CanBeResold rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :LargeCar
+                                                        :RetiredCar
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :Car ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :disposalDateTime ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :disposalPrice ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:integer
+                             ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car
+:Car rdf:type owl:Class ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty :isProducedIn ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :City
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :carColor ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :purchaseDateTime ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:dateTime
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :purchasePrice ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:integer
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :whetherIsRentedNow ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:boolean
+                     ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity
+:ChineseCity rdf:type owl:Class ;
+             rdfs:subClassOf :City ;
+             owl:disjointWith :EuropeanCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City
+:City rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee
+:Employee rdf:type owl:Class ;
+          rdfs:subClassOf :People ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fix ;
+                            owl:someValuesFrom :NeedFix
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :age ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :employeeCode ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity
+:EuropeanCity rdf:type owl:Class ;
+              rdfs:subClassOf :City .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar
+:LargeCar rdf:type owl:Class ;
+          rdfs:subClassOf :Car ;
+          owl:disjointWith :MediumCar ,
+                           :SmallCar .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar
+:MediumCar rdf:type owl:Class ;
+           rdfs:subClassOf :Car ;
+           owl:disjointWith :SmallCar .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member
+:Member rdf:type owl:Class ;
+        rdfs:subClassOf :People ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :employeeCode ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:integer
+                        ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented
+:MemberHaveRented rdf:type owl:Class ;
+                  rdfs:subClassOf :Member ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :rent ;
+                                    owl:someValuesFrom :Car
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :totalRentingHour ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:decimal
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :whetherHaveBadRecord ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:boolean
+                                  ] ;
+                  owl:disjointWith :MemberNotRentYet .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet
+:MemberNotRentYet rdf:type owl:Class ;
+                  rdfs:subClassOf :Member ,
+                                  [ rdf:type owl:Class ;
+                                    owl:complementOf :MemberHaveRented
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :rent ;
+                                    owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Car
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :age ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:integer
+                                  ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix
+:NeedFix rdf:type owl:Class ;
+         rdfs:subClassOf :Car ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isFixedBy ;
+                           owl:someValuesFrom :Employee
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isSentToFixIn ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :City
+                         ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse
+:NotInUse rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :NeedFix
+                                              :RetiredCar
+                                            )
+                              ] ;
+          rdfs:subClassOf :Car .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People
+:People rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :age ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:integer
+                        ] .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar
+:RetiredCar rdf:type owl:Class ;
+            rdfs:subClassOf :Car .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar
+:SmallCar rdf:type owl:Class ;
+          rdfs:subClassOf :Car .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#adam
+:adam rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 21 ;
+      :employeeCode 0001 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#alex
+:alex rdf:type owl:NamedIndividual ,
+               :MemberHaveRented ;
+      :rent :ford ;
+      :age 33 ;
+      :totalRentingHour 50.5 ;
+      :whetherHaveBadRecord "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam
+:amsterdam rdf:type owl:NamedIndividual ,
+                    :EuropeanCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amy
+:amy rdf:type owl:NamedIndividual ,
+              :MemberHaveRented ;
+     :rent :lexus ;
+     :age 23 ;
+     :totalRentingHour 17 ;
+     :whetherHaveBadRecord "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#aston_martin
+:aston_martin rdf:type owl:NamedIndividual ,
+                       :SmallCar ;
+              :isOwnedBy :bj_skp ;
+              :isParkedInBranch :sh_zhengdasquare ;
+              :isProducedIn :london ;
+              :carColor "grey"^^xsd:string ;
+              :purchaseDateTime "2016-09-04T09:00:00"^^xsd:dateTime ;
+              :purchasePrice 150000 ;
+              :whetherIsRentedNow "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#audi
+:audi rdf:type owl:NamedIndividual ,
+               :MediumCar ;
+      :isOwnedBy :selfridge ;
+      :isParkedInBranch :harrods ;
+      :isProducedIn :london ;
+      :carColor "white"^^xsd:string ;
+      :purchaseDateTime "2012-09-23T09:00:00"^^xsd:dateTime ;
+      :purchasePrice 17000 ;
+      :whetherIsRentedNow "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing
+:beijing rdf:type owl:NamedIndividual ,
+                  :ChineseCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#benzsmart
+:benzsmart rdf:type owl:NamedIndividual ,
+                    :SmallCar ;
+           :isOwnedBy :selfridge ;
+           :isParkedInBranch :selfridge ;
+           :isProducedIn :paris ;
+           :carColor "green"^^xsd:string ;
+           :purchaseDateTime "2019-03-09T09:00:00"^^xsd:dateTime ;
+           :purchasePrice 32000 ;
+           :whetherIsRentedNow "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bill
+:bill rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 39 ;
+      :employeeCode 0003 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bj_skp
+:bj_skp rdf:type owl:NamedIndividual ,
+                 :BusinessBranch ;
+        :hasEmployee :bill ;
+        :isIn :beijing .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bob
+:bob rdf:type owl:NamedIndividual ,
+              :MemberHaveRented ;
+     :rent :tesla ;
+     :age 19 ;
+     :totalRentingHour 34 ;
+     :whetherHaveBadRecord "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#cindy
+:cindy rdf:type owl:NamedIndividual ,
+                :MemberHaveRented ;
+       :rent :audi ;
+       :totalRentingHour 9 ;
+       :whetherHaveBadRecord "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric
+:eric rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 26 ;
+      :employeeCode 0004 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#evan
+:evan rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 33 ;
+      :employeeCode 0007 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ford
+:ford rdf:type owl:NamedIndividual ,
+               :LargeCar ;
+      :isOwnedBy :sh_zhengdasquare ;
+      :isParkedInBranch :bj_skp ;
+      :isProducedIn :shanghai ;
+      :carColor "red"^^xsd:string ;
+      :purchaseDateTime "2018-01-30T09:10:00"^^xsd:dateTime ;
+      :purchasePrice 8000 ;
+      :whetherIsRentedNow "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods
+:harrods rdf:type owl:NamedIndividual ,
+                  :BusinessBranch ;
+         :hasEmployee :adam ,
+                      :evan ,
+                      :zoey ;
+         :isIn :london .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#honda
+:honda rdf:type owl:NamedIndividual ,
+                :NeedFix ,
+                :NotInUse ,
+                :SmallCar ;
+       :isOwnedBy :harrods ;
+       :isParkedInBranch :harrods ;
+       :isProducedIn :london ;
+       :carColor "silver"^^xsd:string ;
+       :purchaseDateTime "2009-10-10T09:00:00"^^xsd:dateTime ;
+       :purchasePrice 29000 ;
+       :whetherIsRentedNow "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#jerry
+:jerry rdf:type owl:NamedIndividual ,
+                :MemberNotRentYet ;
+       :age 26 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#knight_bridge
+:knight_bridge rdf:type owl:NamedIndividual ,
+                        :BusinessBranch ;
+               :hasEmployee :eric ;
+               :isIn :paris .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#land_rover
+:land_rover rdf:type owl:NamedIndividual ,
+                     :LargeCar ;
+            :isOwnedBy :harrods ;
+            :isParkedInBranch :selfridge ;
+            :isProducedIn :amsterdam ;
+            :carColor "black"^^xsd:string ;
+            :purchaseDateTime "2014-03-30T14:00:00"^^xsd:dateTime ;
+            :purchasePrice 19000 ;
+            :whetherIsRentedNow "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lexus
+:lexus rdf:type owl:NamedIndividual ,
+                :LargeCar ;
+       :isOwnedBy :knight_bridge ;
+       :isParkedInBranch :harrods ;
+       :isProducedIn :paris ;
+       :carColor "grey"^^xsd:string ;
+       :purchaseDateTime "2012-07-11T09:00:00"^^xsd:dateTime ;
+       :purchasePrice 9000 ;
+       :whetherIsRentedNow "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lincoln
+:lincoln rdf:type owl:NamedIndividual ,
+                  :CanBeResold ,
+                  :LargeCar ,
+                  :RetiredCar ;
+         :isProducedIn :london ;
+         :carColor "black"^^xsd:string ;
+         :disposalDateTime "2019-11-09T09:00:00"^^xsd:dateTime ;
+         :disposalPrice 10000 ;
+         :purchaseDateTime "2002-05-30T09:00:00"^^xsd:dateTime ;
+         :purchasePrice 25000 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london
+:london rdf:type owl:NamedIndividual ,
+                 :EuropeanCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark
+:mark rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 23 ;
+      :employeeCode 0006 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mazda
+:mazda rdf:type owl:NamedIndividual ,
+                :CanBeResold ,
+                :LargeCar ,
+                :RetiredCar ;
+       :isProducedIn :beijing ;
+       :carColor "silver"^^xsd:string ;
+       :disposalDateTime "2020-04-20T09:00:00"^^xsd:dateTime ;
+       :disposalPrice 3000 ;
+       :purchaseDateTime "2012-05-12T13:00:00"^^xsd:dateTime ;
+       :purchasePrice 9000 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris
+:paris rdf:type owl:NamedIndividual ,
+                :EuropeanCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paul
+:paul rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :age 45 ;
+      :employeeCode 0005 .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge
+:selfridge rdf:type owl:NamedIndividual ,
+                    :BusinessBranch ;
+           :hasEmployee :paul ;
+           :isIn :amsterdam .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#sh_zhengdasquare
+:sh_zhengdasquare rdf:type owl:NamedIndividual ,
+                           :BusinessBranch ;
+                  :hasEmployee :mark ;
+                  :isIn :shanghai .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai
+:shanghai rdf:type owl:NamedIndividual ,
+                   :ChineseCity .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tesla
+:tesla rdf:type owl:NamedIndividual ,
+                :MediumCar ;
+       :isOwnedBy :harrods ;
+       :isParkedInBranch :harrods ;
+       :isProducedIn :shanghai ;
+       :carColor "black"^^xsd:string ;
+       :purchaseDateTime "2011-04-25T09:00:00"^^xsd:dateTime ;
+       :purchasePrice 40000 ;
+       :whetherIsRentedNow "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tom
+:tom rdf:type owl:NamedIndividual ,
+              :MemberHaveRented ;
+     :rent :aston_martin ;
+     :age 25 ;
+     :totalRentingHour 16 ;
+     :whetherHaveBadRecord "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#vincent
+:vincent rdf:type owl:NamedIndividual ,
+                  :MemberNotRentYet .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#volvo
+:volvo rdf:type owl:NamedIndividual ,
+                :MediumCar ,
+                :NeedFix ,
+                :NotInUse ;
+       :isOwnedBy :harrods ;
+       :isParkedInBranch :knight_bridge ;
+       :isProducedIn :beijing ;
+       :isSentToFixIn :london ;
+       :carColor "gloden"^^xsd:string ;
+       :purchaseDateTime "2018-02-11T09:00:00"^^xsd:dateTime ;
+       :purchasePrice 23000 ;
+       :whetherIsRentedNow "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#zoey
+:zoey rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :fix :volvo ;
+      :age 37 ;
+      :employeeCode 0002 .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
