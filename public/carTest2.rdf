@@ -159,6 +159,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#branchName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#branchName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor">
@@ -720,6 +729,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bill"/>
         <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing"/>
+        <branchName>bj_skp</branchName>
     </owl:NamedIndividual>
     
 
@@ -795,6 +805,7 @@
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#evan"/>
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#zoey"/>
         <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <branchName>harrods</branchName>
     </owl:NamedIndividual>
     
 
@@ -833,6 +844,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric"/>
         <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris"/>
+        <branchName>knight_bridge</branchName>
     </owl:NamedIndividual>
     
 
@@ -949,6 +961,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paul"/>
         <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam"/>
+        <branchName>selfridge</branchName>
     </owl:NamedIndividual>
     
 
@@ -959,6 +972,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
         <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark"/>
         <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai"/>
+        <branchName>sh_zhengdasquare</branchName>
     </owl:NamedIndividual>
     
 
