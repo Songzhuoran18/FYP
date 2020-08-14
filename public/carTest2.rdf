@@ -177,6 +177,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#cityName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#cityName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date">
@@ -619,6 +628,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+        <cityName>amsterdam</cityName>
     </owl:NamedIndividual>
     
 
@@ -672,6 +682,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity"/>
+        <cityName>beijing</cityName>
     </owl:NamedIndividual>
     
 
@@ -879,6 +890,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+        <cityName>london</cityName>
     </owl:NamedIndividual>
     
 
@@ -915,6 +927,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+        <cityName>paris</cityName>
     </owl:NamedIndividual>
     
 
@@ -954,6 +967,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity"/>
+        <cityName>shanghai</cityName>
     </owl:NamedIndividual>
     
 
