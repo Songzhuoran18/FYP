@@ -1,0 +1,1032 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#"
+     xml:base="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#fix -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#fix">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isFixedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#hasEmployee -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#hasEmployee">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isFixedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isFixedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isOwnedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isOwnedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold"/>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isParkedInBranch -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isParkedInBranch">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold"/>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isProducedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isProducedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isRentedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isRentedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse"/>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isSentToFixIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isSentToFixIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse"/>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalDateTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalPrice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#employeeCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#employeeCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#personName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#personName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchaseDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchaseDateTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#date"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchasePrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchasePrice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#totalRentingHour -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#totalRentingHour">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherHaveBadRecord -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherHaveBadRecord">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherIsRentedNow -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherIsRentedNow">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#hasEmployee"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalDateTime"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#disposalPrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isProducedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#carColor"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchaseDateTime"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#purchasePrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherIsRentedNow"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#fix"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#employeeCode"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#employeeCode"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#totalRentingHour"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#whetherHaveBadRecord"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Member"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#rent"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isFixedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#isSentToFixIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#People">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#age"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#adam -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#adam">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0001</employeeCode>
+        <personName>adam</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#alex -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#alex">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rent rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ford"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</age>
+        <personName>alex</personName>
+        <totalRentingHour rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.5</totalRentingHour>
+        <whetherHaveBadRecord rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherHaveBadRecord>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rent rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lexus"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</age>
+        <personName>amy</personName>
+        <totalRentingHour rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</totalRentingHour>
+        <whetherHaveBadRecord rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherHaveBadRecord>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#aston_martin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#aston_martin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bj_skp"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#sh_zhengdasquare"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">grey</carColor>
+        <carName>aston_martin</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-09-04T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#audi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#audi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white</carColor>
+        <carName>audi</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-09-23T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#benzsmart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#benzsmart">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">green</carColor>
+        <carName>benzsmart</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-09T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0003</employeeCode>
+        <personName>bill</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bj_skp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bj_skp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bill"/>
+        <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bob -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bob">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rent rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tesla"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</age>
+        <personName>bob</personName>
+        <totalRentingHour rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</totalRentingHour>
+        <whetherHaveBadRecord rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherHaveBadRecord>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#cindy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#cindy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rent rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#audi"/>
+        <personName>cindy</personName>
+        <totalRentingHour rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</totalRentingHour>
+        <whetherHaveBadRecord rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherHaveBadRecord>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0004</employeeCode>
+        <personName>eric</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#evan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#evan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0007</employeeCode>
+        <personName>evan</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ford -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ford">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#sh_zhengdasquare"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#bj_skp"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">red</carColor>
+        <carName>ford</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-01-30T09:10:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#adam"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#evan"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#zoey"/>
+        <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#honda -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#honda">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#SmallCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">silver</carColor>
+        <carName>honda</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-10-10T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#jerry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#jerry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</age>
+        <personName>jerry</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#knight_bridge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#knight_bridge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric"/>
+        <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#land_rover -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#land_rover">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">black</carColor>
+        <carName>land_rover</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2014-03-30T14:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lexus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lexus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#knight_bridge"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">grey</carColor>
+        <carName>lexus</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-07-11T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lincoln -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#lincoln">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">black</carColor>
+        <carName>lincoln</carName>
+        <disposalDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-09T09:00:00</disposalDateTime>
+        <disposalPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</disposalPrice>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2002-05-30T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25000</purchasePrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0006</employeeCode>
+        <personName>mark</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mazda -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mazda">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#CanBeResold"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#LargeCar"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#RetiredCar"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">silver</carColor>
+        <carName>mazda</carName>
+        <disposalDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-20T09:00:00</disposalDateTime>
+        <disposalPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3000</disposalPrice>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-05-12T13:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9000</purchasePrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paris">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#EuropeanCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paul -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paul">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0005</employeeCode>
+        <personName>paul</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#selfridge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#paul"/>
+        <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#amsterdam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#sh_zhengdasquare -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#sh_zhengdasquare">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#BusinessBranch"/>
+        <hasEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark"/>
+        <isIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#ChineseCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#shanghai"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">black</carColor>
+        <carName>tesla</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-04-25T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#tom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberHaveRented"/>
+        <rent rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#aston_martin"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</age>
+        <personName>tom</personName>
+        <totalRentingHour rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</totalRentingHour>
+        <whetherHaveBadRecord rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</whetherHaveBadRecord>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#vincent -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#vincent">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MemberNotRentYet"/>
+        <personName>vincent</personName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#volvo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#volvo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#MediumCar"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NeedFix"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#NotInUse"/>
+        <isOwnedBy rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isParkedInBranch rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#knight_bridge"/>
+        <isProducedIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#beijing"/>
+        <isSentToFixIn rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#london"/>
+        <carColor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gloden</carColor>
+        <carName>volvo</carName>
+        <purchaseDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-02-11T09:00:00</purchaseDateTime>
+        <purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23000</purchasePrice>
+        <whetherIsRentedNow rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</whetherIsRentedNow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#zoey -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#zoey">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
+        <fix rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#volvo"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</age>
+        <employeeCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0002</employeeCode>
+        <personName>zoey</personName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
