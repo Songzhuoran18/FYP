@@ -663,6 +663,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#adam">
         <rdf:type rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#Employee"/>
         <hasFullEmployee rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#harrods"/>
+        <isBossOf rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark"/>
         <workInSameCompanyWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#eric"/>
         <workInSameCompanyWith rdf:resource="http://www.semanticweb.org/mxw/ontologies/2020/3/untitled-ontology-17#mark"/>
         <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</age>
