@@ -11,7 +11,7 @@
     "react": "^16.8.4",
     "react-app-rewired": "^2.1.1",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8",
+    "react-scripts": "5.0.1",
     "recorder-js": "^1.0.7",
     "uuidv4": "^4.0.0"
   },
